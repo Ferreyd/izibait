@@ -17,7 +17,7 @@ class MatchesController {
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         Date now = new Date(Calendar.getInstance().getTime().getTime())
-        Date previousWeek =  now - 30
+        Date previousWeek =  now - 14
         def res = Matches.findAllByDateBetween(previousWeek, now)
         def betMatches = betService.computeBetMatchObject(res)
         respond matchesService.list(params), model:[matchesCount: matchesService.count(), selectedMatch: betMatches]

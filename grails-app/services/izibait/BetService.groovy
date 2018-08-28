@@ -5,17 +5,19 @@ import grails.gorm.transactions.Transactional
 import groovy.json.JsonSlurper
 
 import java.sql.Date
+import java.text.DecimalFormat
 
 @Transactional
 class BetService {
 
+    private static DecimalFormat df2 = new DecimalFormat(".##");
     /**
      * Charge un fichier json à un endroit donné
      * @return
      */
     def loadJson() {
         def jsonSlurper = new JsonSlurper()
-        def jsonObject = jsonSlurper.parse(new File("/grails-app/assets/jsonFiles/matches.json"))
+        def jsonObject = jsonSlurper.parse(new File("C:\\Users\\cordi\\IdeaProjects\\Izibait\\grails-app\\assets\\jsonFiles\\matches.json"))
 
         //Je charge une hashmap avec le nom de l'équipe en clé
         //ainsi je ne fait qu'une chargement de la base et je pioche dans la map ce qui est plus optimisé
@@ -81,9 +83,10 @@ class BetService {
                 betMatch.setOutcome(m.getOutcome())
             }
 
+
             Double maxDelta = Math.max(betMatch.getOddTeam1(), betMatch.getOddTeam2()) - Math.min(betMatch.getOddTeam1(), betMatch.getOddTeam2())
-            betMatch.maxDelta = maxDelta
-            betMatch.bettingResult = Math.min(betMatch.getOddTeam1(), betMatch.getOddTeam2())
+            betMatch.maxDelta = df2.format(maxDelta)
+            betMatch.bettingResult = df2.format(Math.min(betMatch.getOddTeam1(), betMatch.getOddTeam2()))
 
             betMatches.add(betMatch)
 

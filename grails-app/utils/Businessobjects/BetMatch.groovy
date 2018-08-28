@@ -4,85 +4,85 @@ package Businessobjects
  * Created by cordi on 28/08/2018.
  */
 class BetMatch {
-    private Date date
-    private String team1
-    private String team2
-    private Double oddTeam1
-    private Double oddTeam2
-    private Double oddDraw
-    private Double maxDelta
-    private Double bettingResult
-    private String outcome
+    private def date
+    private def team1
+    private def team2
+    private def oddTeam1
+    private def oddTeam2
+    private def oddDraw
+    private def maxDelta
+    private def bettingResult
+    private def outcome
 
-    Date getDate() {
+    def getDate() {
         return date
     }
 
-    String getOutcome() {
-        return outcome
-    }
-
-    void setOutcome(String outcome) {
-        this.outcome = outcome
-    }
-
-    void setDate(Date date) {
+    void setDate(date) {
         this.date = date
     }
 
-    String getTeam1() {
+    def getTeam1() {
         return team1
     }
 
-    void setTeam1(String team1) {
+    void setTeam1(team1) {
         this.team1 = team1
     }
 
-    String getTeam2() {
+    def getTeam2() {
         return team2
     }
 
-    void setTeam2(String team2) {
+    void setTeam2(team2) {
         this.team2 = team2
     }
 
-    Double getOddTeam1() {
+    def getOddTeam1() {
         return oddTeam1
     }
 
-    void setOddTeam1(Double oddTeam1) {
+    void setOddTeam1(oddTeam1) {
         this.oddTeam1 = oddTeam1
     }
 
-    Double getOddTeam2() {
+    def getOddTeam2() {
         return oddTeam2
     }
 
-    void setOddTeam2(Double oddTeam2) {
+    void setOddTeam2(oddTeam2) {
         this.oddTeam2 = oddTeam2
     }
 
-    Double getOddDraw() {
+    def getOddDraw() {
         return oddDraw
     }
 
-    void setOddDraw(Double oddDraw) {
+    void setOddDraw(oddDraw) {
         this.oddDraw = oddDraw
     }
 
-    Double getMaxDelta() {
+    def getMaxDelta() {
         return maxDelta
     }
 
-    void setMaxDelta(Double maxDelta) {
+    void setMaxDelta(maxDelta) {
         this.maxDelta = maxDelta
     }
 
-    Double getBettingResult() {
+    def getBettingResult() {
         return bettingResult
     }
 
-    void setBettingResult(Double bettingResult) {
+    void setBettingResult(bettingResult) {
         this.bettingResult = bettingResult
+    }
+
+    def getOutcome() {
+        return outcome
+    }
+
+    void setOutcome(outcome) {
+        this.outcome = outcome
     }
 }
