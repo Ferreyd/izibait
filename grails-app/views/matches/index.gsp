@@ -30,6 +30,8 @@
                     <g:sortableColumn property="Cote1" title="Cote1"/>
                     <g:sortableColumn property="Cote2" title="Cote2"/>
                     <g:sortableColumn property="CoteEgalite" title="CoteEgalite"/>
+                    <g:sortableColumn property="MaxDelta" title="Max Delta"/>
+                    <g:sortableColumn property="ResultatParie" title="Resultats Parié"/>
                 </tr>
                 </thead>
                 <tbody>
@@ -37,12 +39,14 @@
                     <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
                         <td><g:formatDate format ="dd-MM-yyyy" style="SHORT" date="${match.date}" /></td>
-                        <td>${match.team1.name}</td>
-                        <td>${match.team2.name}</td>
+                        <td>${match.team1}</td>
+                        <td>${match.team2}</td>
                         <td>${match.outcome}</td>
-                        <td>${match.odds.oddTeam1}</td>
-                        <td>${match.odds.oddTeam2}</td>
-                        <td>${match.odds.oddDraw}</td>
+                        <td>${match.oddTeam1}</td>
+                        <td>${match.oddTeam2}</td>
+                        <td>${match.oddDraw}</td>
+                        <td>${match.maxDelta}</td>
+                        <td>${match.bettingResult}</td>
 
                     </tr>
                 </g:each>

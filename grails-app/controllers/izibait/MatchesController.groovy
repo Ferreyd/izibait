@@ -10,6 +10,7 @@ import static org.springframework.http.HttpStatus.*
 class MatchesController {
 
     MatchesService matchesService
+    BetService betService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -18,7 +19,8 @@ class MatchesController {
         Date now = new Date(Calendar.getInstance().getTime().getTime())
         Date previousWeek =  now - 30
         def res = Matches.findAllByDateBetween(previousWeek, now)
-        respond matchesService.list(params), model:[matchesCount: matchesService.count(), selectedMatch: res]
+        def betMatches = betService.computeBetMatchObject(res)
+        respond matchesService.list(params), model:[matchesCount: matchesService.count(), selectedMatch: betMatches]
     }
 
     def show(Long id) {
@@ -27,7 +29,7 @@ class MatchesController {
     }
 
     def loadJson(){
-        jsonloading()
+        betService.loadJson()
         index(500)
     }
 
